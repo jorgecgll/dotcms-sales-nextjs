@@ -60,7 +60,7 @@ export function MyPage({ pageAsset, nav }) {
     pageAsset = usePageAsset(pageAsset);
     
     return (
-        <div className="flex flex-col min-h-screen gap-6 bg-lime-50">
+        <div className="flex flex-col min-h-screen gap-6">
             {pageAsset.layout.header && (
                 <Header>
                     <Navigation items={nav} />

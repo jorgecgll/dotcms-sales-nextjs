@@ -1,29 +1,32 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 function Banner({ title, image, caption, buttonText, link }) {
-    return (
-        <div className="relative w-full p-4 bg-gray-200 h-96">
-            {image && (
-                <Image
-                    src={image?.idPath ?? image}
-                    fill={true}
-                    className="object-cover"
-                    alt={title}
-                />
-            )}
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center text-white">
-                <h2 className="mb-2 text-6xl font-bold text-shadow">{title}</h2>
-                <p className="mb-4 text-xl text-shadow">{caption}</p>
-                <Link
-                    className="p-4 text-xl transition duration-300 bg-purple-500 rounded hover:bg-purple-600"
-                    href={link || "#"}
-                >
-                    {buttonText}
-                </Link>
-            </div>
+
+  return (<div>
+    <div className="p-16">
+      <section className="py-18 flex flex-col items-center text-center gap-7">
+        <h1 className="text-6xl font-bold">{title}</h1>
+        <p className="text-4xl">{caption}</p>
+        <div className="flex gap-6 items-center justify-center">
+          <Button>{buttonText}</Button>
         </div>
-    );
+      </section>
+
+    </div>
+    <div>
+      <Image
+        src={image?.idPath ?? image}
+        width={500}
+        height={500}
+        className="object-cover rounded-md"
+        alt={title}
+        style={{width: "100%", borderRadius: "40px"}}
+      />
+    </div>
+  </div>
+  );
 }
 
 export default Banner;
